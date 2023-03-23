@@ -1,0 +1,57 @@
+<div class="flex-col rounded-lg bg-white px-8 py-8 dark:bg-night-700 sm:flex-row m-2">
+    <div class="mb-4 flex items-center justify-between">
+        <div class="flex-col items-center">
+            <h3 class="text-md font-bold text-gray-900 dark:text-night-50">Invoices</h3>
+            <span class="text-sm text-gray-400 dark:text-night-300">teste</span>
+        </div>
+        <button
+                class="flex-none rounded-md bg-gray-100 px-4 py-2.5 text-xs font-semibold text-gray-500 hover:bg-gray-200 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500">
+            History
+        </button>
+    </div>
+
+    <div class="relative overflow-x-auto">
+        <table class="w-full table-auto">
+            <!--Table head-->
+            <thead class="text-xs uppercase text-gray-400 dark:text-night-300">
+            <tr>
+                <th class="py-3 text-left text-center">#ID</th>
+                <th class="py-3 text-left">Email</th>
+                <th class="py-3 text-left">Status</th>
+                <th class="py-3 text-left">Price $</th>
+                <th class="py-3 text-right">View</th>
+            </tr>
+            </thead>
+            <!--end Table head-->
+            <!--Table body-->
+            <tbody>
+            <tr
+                    *ngFor="let invoice of invoices | async; let i = index"
+                    class="border-b border-dashed border-gray-200 hover:bg-gray-100 dark:border-night-500 dark:hover:bg-night-600">
+                <td class="py-2 pr-2 text-center">
+                    <span class="text-xs font-semibold text-gray-400 dark:text-night-300">{{ i }}</span>
+                </td>
+                <td class="py-2 pl-2 text-left">
+                    <span class="text-sm font-semibold text-gray-400 dark:text-night-200">{{ invoice.email }}</span>
+                </td>
+                <td class="py-2 pl-2 text-left">
+                    <span class="text-sm font-semibold text-gray-400 dark:text-night-200">{{ invoice.status }}</span>
+                </td>
+                <td class="py-2 pl-2 text-left">
+                    <span class="text-sm font-semibold text-gray-400 dark:text-night-200">{{ invoice.total_amount }}</span>
+                </td>
+                <td class="py-2 pl-2 text-right">
+                    <div class="flex justify-end">
+                        <button
+                                href="#"
+                                class="flex h-7 w-7 items-center justify-center rounded-md bg-gray-200 text-gray-400 dark:bg-night-500 dark:text-night-300">
+                            <svg-icon src="assets/icons/outline/arrow-sm-right.svg" [svgClass]="'h-5 w-5'"> </svg-icon>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+            <!--end::Table body-->
+        </table>
+    </div>
+</div>
