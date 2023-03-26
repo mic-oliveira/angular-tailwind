@@ -13,7 +13,7 @@ const routes: Routes = [
     component: LayoutComponent,
     loadChildren: () => import('../invoice/invoice.module').then((m) => m.InvoiceModule)
   },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'invoices', pathMatch: 'full' },
   { path: '**', redirectTo: 'error/404' },
 ];
 

@@ -1,7 +1,8 @@
 export interface Invoice {
-  id: string;
+  id: string | undefined;
   total_amount: number;
-  status: string;
+  status: 'pending' |  'canceled' |  'paid';
   email: string;
   products: [any];
+  due_date: string;
 }
