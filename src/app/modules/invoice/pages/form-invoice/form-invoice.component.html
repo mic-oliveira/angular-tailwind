@@ -17,7 +17,7 @@
           name="due_date"
           [ngModel]="invoice.due_date | date: 'yyyy-MM-dd HH:mm'"
           placeholder=" "
-          [readOnly]="invoice"
+          [readOnly]="invoice.due_date"
           required />
         <label
           for="due_date"
@@ -33,7 +33,7 @@
                 name="email"
                 [ngModel]="invoice.email"
                 placeholder=" "
-                [readOnly]="invoice"
+                [readOnly]="invoice.email"
                 required />
         <label
                 for="email"
@@ -43,6 +43,7 @@
       </div>
     </div>
   </div>
+  <app-item-form *ngIf="!invoice.id"></app-item-form>
   <div class="m-2 flex-col rounded-lg bg-white px-8 py-8 dark:bg-night-700 sm:flex-row">
     <div class="mb-4 flex items-center justify-between">
       <div class="flex-col items-center">

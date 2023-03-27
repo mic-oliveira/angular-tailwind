@@ -1,7 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {ApiInterface} from "../../../../services/api-interface";
-import {Observable, of} from "rxjs";
+import {BehaviorSubject, debounceTime, delay, Observable, of, Subject} from "rxjs";
 import {Invoice} from "../../models/invoice";
+import {InvoiceSearch} from "../../models/invoiceSearch";
 
 @Component({
   selector: 'app-list-invoice',
@@ -10,13 +11,23 @@ import {Invoice} from "../../models/invoice";
 })
 export class ListInvoiceComponent implements OnInit {
   invoices: Observable<[Invoice]> = new Observable<[Invoice]>();
-  constructor(@Inject('ApiInterface') private invoiceService: ApiInterface) {
+  searchOptions: InvoiceSearch = new InvoiceSearch();
+
+  searchInvoice: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  constructor(@Inject('InvoiceService') private invoiceService: ApiInterface) {
+    console.log(this.searchOptions.toURI());
   }
 
   ngOnInit(): void {
-    this.invoiceService.get().subscribe((data) => {
-      this.invoices = of(data.data);
-    });
+    this.searchInvoice.pipe(debounceTime(500)).subscribe((value) => {
+      this.invoiceService.get(this.searchOptions).subscribe((data) => {
+        this.invoices = of(data.data);
+      });
+    })
+  }
+
+  search() {
+    this.searchInvoice.next('');
   }
 
 

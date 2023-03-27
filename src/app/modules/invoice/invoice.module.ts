@@ -10,12 +10,18 @@ import {FormInvoiceComponent} from './pages/form-invoice/form-invoice.component'
 import {FormsModule} from "@angular/forms";
 import {NgIconsModule} from "@ng-icons/core";
 import {heroPencilSquareSolid, heroTrashSolid} from "@ng-icons/heroicons/solid";
+import { SearchFormComponent } from './components/search-form/search-form.component';
+import { ItemFormComponent } from './components/item-form/item-form.component';
+import {ProductModule} from "../product/product.module";
+import {ProductService} from "../../services/api/product.service";
 
 
 @NgModule({
   declarations: [
     ListInvoiceComponent,
-    FormInvoiceComponent
+    FormInvoiceComponent,
+    SearchFormComponent,
+    ItemFormComponent
   ],
   imports: [
     CommonModule,
@@ -27,9 +33,11 @@ import {heroPencilSquareSolid, heroTrashSolid} from "@ng-icons/heroicons/solid";
       heroPencilSquareSolid,
       heroTrashSolid,
     }),
+    ProductModule,
   ],
   providers: [
-    {provide: 'ApiInterface', useClass: InvoiceService},
+    {provide: 'InvoiceService', useClass: InvoiceService},
+    {provide: 'ProductService', useClass: ProductService},
   ],
 })
 export class InvoiceModule { }
