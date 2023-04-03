@@ -13,7 +13,6 @@ export class ProductService implements ApiInterface{
   private endpoint = `${environment.invoice_api}/products`
 
   constructor(private http: HttpClient) { }
-
   delete(id: any): Observable<any> {
     return this.http.delete(`${this.endpoint}/${id}`);
   }
