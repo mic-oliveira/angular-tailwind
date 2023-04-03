@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {LocationStrategy} from "@angular/common";
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     onSameUrlNavigation: "reload"
   })],
+  providers: [
+    {provide: LocationStrategy, useClass: LocationStrategy}
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
