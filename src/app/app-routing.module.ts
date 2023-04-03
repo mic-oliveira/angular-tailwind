@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LocationStrategy, PathLocationStrategy} from "@angular/common";
+import {APP_BASE_HREF, LocationStrategy, PathLocationStrategy} from "@angular/common";
 
 const routes: Routes = [
   {
@@ -19,7 +19,8 @@ const routes: Routes = [
     onSameUrlNavigation: "reload"
   })],
   providers: [
-    {provide: LocationStrategy, useClass: PathLocationStrategy}
+    {provide: LocationStrategy, useClass: PathLocationStrategy},
+    {provide: APP_BASE_HREF, useValue: '/'}
   ],
   exports: [RouterModule],
 })
