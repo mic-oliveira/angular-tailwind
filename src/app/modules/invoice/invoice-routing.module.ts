@@ -5,7 +5,8 @@ import {FormInvoiceComponent} from "./pages/form-invoice/form-invoice.component"
 
 const routes: Routes = [
   {path: '', component: ListInvoiceComponent},
-  {path: ':id', component: FormInvoiceComponent}
+  {path: ':id', component: FormInvoiceComponent},
+  {path: '**', redirectTo: '/invoices'}
 ];
 
 @NgModule({

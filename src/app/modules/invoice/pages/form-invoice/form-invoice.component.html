@@ -85,7 +85,7 @@
               </td>
               <td class="py-2 pl-2 text-center">
                 <span class="text-sm font-semibold text-gray-400 dark:text-night-200">{{
-                  product.total / 100 | currency: 'BRL':'symbol'
+                  (product.sold_value * product.quantity) / 100 | currency: 'BRL'
                 }}</span>
               </td>
             </tr>

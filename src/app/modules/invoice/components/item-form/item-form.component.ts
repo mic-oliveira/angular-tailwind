@@ -13,13 +13,7 @@ export class ItemFormComponent implements OnInit{
   @ViewChild('quantity') quantity: any;
   private productsSubject: Subject<string | null> = new Subject<string | null>();
   searchOptions: ProductSearch = new ProductSearch();
-  product: Product = new class implements Product {
-    description: string = '';
-    id: string = '';
-    name: string = '';
-    price: number = 0;
-    quantity: number = 1;
-  };
+  product: Product = new Product();
   products: Observable<Product[]> = new Observable<Product[]>();
   showSuggest: boolean = false;
   constructor(@Inject('ProductService') private productService: ApiInterface) {
@@ -27,8 +21,9 @@ export class ItemFormComponent implements OnInit{
 
   ngOnInit(): void {
     this.productsSubject.pipe(debounceTime(500)).subscribe((filter) => {
-      if (this.searchOptions.getFilter('name').value === '') {
+      if (filter == '') {
         this.clearSearch();
+        return;
       }
       this.productService.get(this.searchOptions).subscribe((response) => {
         this.showSuggest = true;
@@ -38,8 +33,7 @@ export class ItemFormComponent implements OnInit{
   }
 
   search() {
-    this.searchOptions.getFilter('name').value = this.product.name;
-    this.productsSubject.next(null);
+    this.productsSubject.next(this.product.name);
   }
 
   clearSearch() {
@@ -55,4 +49,8 @@ export class ItemFormComponent implements OnInit{
     this.clearSearch();
     this.quantity.nativeElement.focus();
   }
+
+  sumTotal() {
+  }
+
 }
