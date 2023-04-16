@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 import {InvoiceRoutingModule} from './invoice-routing.module';
 import {ListInvoiceComponent} from './pages/list-invoice/list-invoice.component';
@@ -23,18 +23,19 @@ import {ProductService} from "../../services/api/product.service";
     SearchFormComponent,
     ItemFormComponent
   ],
-  imports: [
-    CommonModule,
-    InvoiceRoutingModule,
-    FormsModule,
-    SharedModule,
-    AngularSvgIconModule,
-    NgIconsModule.withIcons({
-      heroPencilSquareSolid,
-      heroTrashSolid,
-    }),
-    ProductModule,
-  ],
+    imports: [
+        CommonModule,
+        InvoiceRoutingModule,
+        FormsModule,
+        SharedModule,
+        AngularSvgIconModule,
+        NgIconsModule.withIcons({
+            heroPencilSquareSolid,
+            heroTrashSolid,
+        }),
+        ProductModule,
+        NgOptimizedImage,
+    ],
   providers: [
     {provide: 'InvoiceService', useClass: InvoiceService},
     {provide: 'ProductService', useClass: ProductService},

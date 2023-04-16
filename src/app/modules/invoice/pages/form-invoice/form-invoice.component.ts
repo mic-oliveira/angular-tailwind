@@ -3,6 +3,7 @@ import {InvoiceService} from "../../../../services/api/invoice.service";
 import {Invoice} from "../../models/invoice";
 import {ActivatedRoute} from "@angular/router";
 import {DatePipe} from "@angular/common";
+import {Product} from "../../../product/models/Product";
 
 
 @Component({
@@ -11,14 +12,7 @@ import {DatePipe} from "@angular/common";
   styleUrls: ['./form-invoice.component.scss']
 })
 export class FormInvoiceComponent implements OnInit {
-  invoice: Invoice = new class implements Invoice {
-    due_date: string = '';
-    email: string = '';
-    id: string | undefined = undefined;
-    products: [any] = <any>[];
-    status: 'pending' |  'canceled' |  'paid' = 'pending'
-    total_amount: number = 0;
-  };
+  invoice: Invoice = new Invoice();
 
   constructor(private readonly _invoiceService: InvoiceService, private readonly _activatedRoute: ActivatedRoute) {
   }
@@ -30,6 +24,12 @@ export class FormInvoiceComponent implements OnInit {
     })
   }
 
+  addProduct(product: Product) {
+    product.sold_value = product.price;
+    this.invoice.products.push(product);
+    this.invoice.sumTotal();
+    console.log(this.invoice)
+  }
 
   submitForm() {
 

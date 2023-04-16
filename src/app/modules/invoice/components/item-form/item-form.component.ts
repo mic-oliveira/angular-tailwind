@@ -1,8 +1,9 @@
-import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Inject, OnInit, Output, ViewChild} from '@angular/core';
 import {ApiInterface} from "../../../../services/api-interface";
 import {Product} from "../../../product/models/Product";
 import {debounceTime, Observable, of, Subject} from "rxjs";
 import {ProductSearch} from "../../../product/models/ProductSearch";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-item-form',
@@ -11,6 +12,7 @@ import {ProductSearch} from "../../../product/models/ProductSearch";
 })
 export class ItemFormComponent implements OnInit{
   @ViewChild('quantity') quantity: any;
+  @Output() addedProduct: EventEmitter<Product> = new EventEmitter<Product>()
   private productsSubject: Subject<string | null> = new Subject<string | null>();
   searchOptions: ProductSearch = new ProductSearch();
   product: Product = new Product();
@@ -25,6 +27,7 @@ export class ItemFormComponent implements OnInit{
         this.clearSearch();
         return;
       }
+      this.searchOptions.getFilter('name').value = filter ?? '';
       this.productService.get(this.searchOptions).subscribe((response) => {
         this.showSuggest = true;
         this.products = of(response.data);
@@ -51,6 +54,14 @@ export class ItemFormComponent implements OnInit{
   }
 
   sumTotal() {
+    this.product.total = this.product.quantity * this.product.price;
   }
 
+  addProduct(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+    this.addedProduct.emit(this.product);
+    this.product = new Product();
+  }
 }

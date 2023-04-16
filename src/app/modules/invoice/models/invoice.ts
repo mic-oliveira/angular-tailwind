@@ -7,4 +7,10 @@ export class Invoice {
   email: string = '';
   products: Product[] = [];
   due_date: string = '';
+
+  sumTotal() {
+    this.total_amount = 0;
+    this.products.map((p) => this.total_amount += p.total);
+    return this.total_amount;
+  }
 }

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+// @ts-ignore
 import { BiddingDualCardComponent } from './nft-dual-card.component';
 
 describe('BiddingDualCardComponent', () => {
