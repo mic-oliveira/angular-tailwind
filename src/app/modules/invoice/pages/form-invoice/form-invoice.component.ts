@@ -15,13 +15,14 @@ export class FormInvoiceComponent implements OnInit {
   invoice: Invoice = new Invoice();
 
   constructor(private readonly _invoiceService: InvoiceService, private readonly _activatedRoute: ActivatedRoute) {
-  }
-
-  ngOnInit(): void {
     console.log(this.invoice.id)
     this._invoiceService.find(this._activatedRoute.snapshot.paramMap.get('id') ?? '').subscribe((response) => {
       this.invoice = response.data;
     })
+  }
+
+  ngOnInit(): void {
+
   }
 
   addProduct(product: Product) {
