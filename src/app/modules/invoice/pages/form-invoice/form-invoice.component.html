@@ -43,7 +43,7 @@
       </div>
     </div>
   </div>
-  <app-item-form *ngIf="!invoice.id" (addedProduct)="addProduct($event)"></app-item-form>
+  <app-item-form *ngIf="showProductAdd" (addedProduct)="addProduct($event)"></app-item-form>
   <div class="m-2 flex-col rounded-lg bg-white px-8 py-8 dark:bg-night-700 sm:flex-row">
     <div class="mb-4 flex items-center justify-between">
       <div class="flex-col items-center">

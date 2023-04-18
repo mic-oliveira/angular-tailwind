@@ -13,9 +13,10 @@ import {Product} from "../../../product/models/Product";
 })
 export class FormInvoiceComponent implements OnInit {
   invoice: Invoice = new Invoice();
+  showProductAdd = false;
 
   constructor(private readonly _invoiceService: InvoiceService, private readonly _activatedRoute: ActivatedRoute) {
-    console.log(this.invoice.id)
+    this.showProductAdd = this._activatedRoute.snapshot.paramMap.get('id') !== 'create';
     this._invoiceService.find(this._activatedRoute.snapshot.paramMap.get('id') ?? '').subscribe((response) => {
       this.invoice = response.data;
     })
