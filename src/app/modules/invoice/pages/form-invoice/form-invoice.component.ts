@@ -16,7 +16,7 @@ export class FormInvoiceComponent implements OnInit {
   showProductAdd = false;
 
   constructor(private readonly _invoiceService: InvoiceService, private readonly _activatedRoute: ActivatedRoute) {
-    this.showProductAdd = this._activatedRoute.snapshot.paramMap.get('id') !== 'create';
+    this.showProductAdd = this._activatedRoute.snapshot.paramMap.get('id') === 'create';
     this._invoiceService.find(this._activatedRoute.snapshot.paramMap.get('id') ?? '').subscribe((response) => {
       this.invoice = response.data;
     })
