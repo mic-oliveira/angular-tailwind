@@ -26,7 +26,7 @@ export class InvoiceService implements ApiInterface {
   }
 
   post(data: any): Observable<any> {
-    return this.http.put(`${this.endpoint}`, data);
+    return this.http.post(`${this.endpoint}`, data);
   }
 
   update(data: any, id: string): Observable<any> {

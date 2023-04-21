@@ -15,9 +15,8 @@
           id="due_date"
           class="peer block grid-cols-2"
           name="due_date"
-          [ngModel]="invoice.due_date | date: 'yyyy-MM-dd HH:mm'"
+          [(ngModel)]="invoice.due_date | date: 'yyyy-MM-dd HH:mm'"
           placeholder=" "
-          [readOnly]="invoice.due_date"
           required />
         <label
           for="due_date"
@@ -31,7 +30,7 @@
                 id="email"
                 class="peer block grid-cols-2"
                 name="email"
-                [ngModel]="invoice.email"
+                [(ngModel)]="invoice.email"
                 placeholder=" "
                 [readOnly]="invoice.email"
                 required />
@@ -73,11 +72,11 @@
                 <span class="text-xs font-semibold text-gray-400 dark:text-night-300">{{ i + 1}}</span>
               </td>
               <td class="py-2 pl-2 text-left">
-                <span class="text-sm font-semibold text-gray-400 dark:text-night-200">{{ product.name }}</span>
+                <span class="text-sm font-semibold text-g ray-400 dark:text-night-200">{{ product.name }}</span>
               </td>
               <td class="py-2 pl-2 text-center">
                 <span class="text-sm font-semibold text-gray-400 dark:text-night-200">{{
-                  product.sold_value / 100 | currency: 'BRL':'symbol'
+                  (product.sold_value / 100) | currency: 'BRL':'symbol'
                 }}</span>
               </td>
               <td class="py-2 pl-2 text-center">
@@ -94,6 +93,13 @@
         </table>
         <div class="w-full flex justify-end">
           <span class="text-xs font-semibold text-gray-400 dark:text-night-300">Total: {{invoice.total_amount / 100 | currency: 'BRL':'symbol'}}</span>
+        </div>
+        <div class="w-full flex justify-end">
+          <button
+            type="submit"
+            class="flex-none rounded-md bg-green-500 px-4 py-2.5 text-xs font-semibold text-stone-50 hover:bg-green-600 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500 sm:mt-80 md:mt-0">
+            Save
+          </button>
         </div>
       </div>
     </div>
