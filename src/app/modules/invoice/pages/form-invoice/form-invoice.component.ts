@@ -34,7 +34,6 @@ export class FormInvoiceComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.invoice);
     this._invoiceService.post(this.invoice).subscribe(() => {
       this._router.navigateByUrl('/invoice').then();
     })
