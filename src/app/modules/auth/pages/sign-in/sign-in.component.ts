@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-sign-in',
@@ -30,6 +31,7 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.form.value, this.form.invalid)
     this.submitted = true;
     const { email, password } = this.form.value;
 
@@ -37,7 +39,7 @@ export class SignInComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-
-    this._router.navigate(['/']);
+    console.log('teste');
+    this._router.navigate(['/dashboard']).then(r => console.log(r))
   }
 }
