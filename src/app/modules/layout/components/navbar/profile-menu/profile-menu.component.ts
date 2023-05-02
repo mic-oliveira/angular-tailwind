@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile-menu',
@@ -8,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileMenuComponent implements OnInit {
   public isMenuOpen = false;
 
-  constructor() {}
+  constructor(private readonly _router: Router) {}
 
   ngOnInit(): void {}
 
   public toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
+    logout() {
+      localStorage.removeItem('token');
+      this._router.navigate(['']).then();
+    }
 }

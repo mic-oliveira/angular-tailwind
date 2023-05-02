@@ -3,8 +3,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {SharedModule} from './shared/shared.module';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TranslateModule} from "@ngx-translate/core";
+import {AuthTokenInterceptor} from "./shared/interceptors/auth-token.interceptor";
+import {AuthGuard} from "./shared/guards/auth.guard";
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +19,10 @@ import {TranslateModule} from "@ngx-translate/core";
       defaultLanguage: 'en'
     })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },
+    AuthGuard
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

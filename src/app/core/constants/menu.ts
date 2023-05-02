@@ -9,7 +9,7 @@ export class Menu {
         {
           icon: 'assets/icons/outline/cash.svg',
           label: 'Invoice',
-          route: '/invoices',
+          route: 'dashboard/invoices',
         },
         {
           icon: 'assets/icons/outline/document-report.svg',
@@ -18,7 +18,7 @@ export class Menu {
         }
       ]
     },
-    {
+    /*{
       group: 'Base',
       separator: false,
       items: [
@@ -41,7 +41,7 @@ export class Menu {
           ],
         },
       ],
-    },
+    },*/
     {
       group: 'Collaboration',
       separator: true,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {AuthService} from "../../../../services/api/auth.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -13,7 +14,7 @@ export class SignInComponent implements OnInit {
   submitted = false;
   passwordTextType!: boolean;
 
-  constructor(private readonly _formBuilder: FormBuilder, private readonly _router: Router) {}
+  constructor(private readonly _formBuilder: FormBuilder, private readonly _router: Router, private readonly _authService: AuthService) {}
 
   ngOnInit(): void {
     this.form = this._formBuilder.group({
@@ -39,7 +40,14 @@ export class SignInComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    console.log('teste');
-    this._router.navigate(['/dashboard']).then(r => console.log(r))
+    this._authService.auth(email, password).subscribe((response: any) => {
+      console.log(response);
+      localStorage.setItem('token', response.token)
+      this._router.navigate(['/dashboard']).then(r => console.log(r))
+    }, (error) => {
+      console.log(error)
+      alert(error.error.message)
+    })
+    //
   }
 }

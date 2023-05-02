@@ -4,6 +4,7 @@ import {Invoice} from "../../models/invoice";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DatePipe} from "@angular/common";
 import {Product} from "../../../product/models/Product";
+import {SweetAlertService} from "../../../../shared/services/sweet-alert.service";
 
 
 @Component({
@@ -35,7 +36,10 @@ export class FormInvoiceComponent implements OnInit {
 
   submitForm() {
     this._invoiceService.post(this.invoice).subscribe(() => {
-      this._router.navigateByUrl('/invoice').then();
+      SweetAlertService.success({title: 'Teste', type: 'success', successButtonText: 'OK'}).then(() => {
+        this._router.navigateByUrl('dashboard/invoices').then();
+      })
+
     })
   }
 }
