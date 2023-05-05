@@ -22,6 +22,7 @@ export class InvoiceService implements ApiInterface {
   }
 
   get(filter?: InvoiceSearch): Observable<any> {
+    console.log(filter?.toURI())
     return this.http.get(`${this.endpoint}${filter?.toURI()}`);
   }
 
