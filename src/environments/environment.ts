@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  invoice_api: 'http://localhost:8089/api'
+  invoice_api: 'http://localhost:8089/api',
+  socket_url: 'http://localhost:6001',
+  socket_app_key: '2b0d33911ae79914310f'
 };
 
 /*

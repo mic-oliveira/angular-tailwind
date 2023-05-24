@@ -1,20 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {NftDualCardComponent} from "./nft-dual-card.component";
 
-// @ts-ignore
-import { BiddingDualCardComponent } from './nft-dual-card.component';
-
-describe('BiddingDualCardComponent', () => {
-  let component: BiddingDualCardComponent;
-  let fixture: ComponentFixture<BiddingDualCardComponent>;
+describe('ItemFormComponent', () => {
+  let component: NftDualCardComponent;
+  let fixture: ComponentFixture<NftDualCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BiddingDualCardComponent],
-    }).compileComponents();
-  });
+      declarations: [ NftDualCardComponent ]
+    })
+      .compileComponents();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BiddingDualCardComponent);
+    fixture = TestBed.createComponent(NftDualCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {InvoiceService} from "../../../../services/api/invoice.service";
 import {Invoice} from "../../models/invoice";
 import {ActivatedRoute, Router} from "@angular/router";
-import {DatePipe} from "@angular/common";
 import {Product} from "../../../product/models/Product";
 import {SweetAlertService} from "../../../../shared/services/sweet-alert.service";
 

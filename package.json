@@ -46,12 +46,16 @@
     "@tailwindcss/typography": "^0.5.4",
     "angular-svg-icon": "^13.0.0",
     "apexcharts": "^3.35.3",
+    "laravel-echo": "^1.15.1",
     "ng-apexcharts": "^1.7.1",
     "ngx-mask": "^15.1.0",
+    "ngx-socketio2": "^2.0.1",
+    "pusher-js": "^8.0.2",
     "rxjs": "~7.4.0",
-    "sweetalert2": "^11.7.3",
+    "socket.io-client": "^4.6.1",
+    "sweetalert2": "^11.7.5",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "^0.13.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.6",

@@ -3,6 +3,7 @@ import {ApiInterface} from "../../../../services/api-interface";
 import {BehaviorSubject, debounceTime, delay, Observable, of, Subject} from "rxjs";
 import {Invoice} from "../../models/invoice";
 import {InvoiceSearch} from "../../models/invoiceSearch";
+import Pusher from "pusher-js";
 
 @Component({
   selector: 'app-list-invoice',
@@ -19,11 +20,16 @@ export class ListInvoiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const p = new Pusher('2b0d33911ae79914310f', {
+      cluster: 'us2'
+    });
+    p.subscribe('test');
+    p.bind('test', (t:any) => alert(t.message));
     this.searchInvoice.pipe(debounceTime(500)).subscribe((value) => {
       this.invoiceService.get(this.searchOptions).subscribe((data) => {
         this.invoices = of(data.data);
       });
-    })
+    });
   }
 
   search() {

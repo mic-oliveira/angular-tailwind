@@ -30,6 +30,11 @@ module.exports = function (config) {
     jasmineHtmlReporter: {
       suppressAll: true, // removes the duplicated traces
     },
+    files: [
+      // outros arquivos...
+      'node_modules/zone.js/dist/zone.js',
+      'node_modules/zone.js/dist/zone-testing.js'
+    ],
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/angular-tailwind'),
       subdir: '.',
