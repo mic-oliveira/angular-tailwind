@@ -9,13 +9,24 @@ export class Menu {
         {
           icon: 'assets/icons/outline/cash.svg',
           label: 'Invoice',
-          route: 'dashboard/invoices',
+          route: '/dashboard/invoices',
         },
         {
           icon: 'assets/icons/outline/document-report.svg',
           label: 'Report',
           route: '/invoices/report',
         }
+      ]
+    },
+    {
+      group: 'Products',
+      separator: false,
+      items: [
+        {
+          icon: 'assets/icons/outline/cash.svg',
+          label: 'Products',
+          route: '/dashboard/products',
+        },
       ]
     },
     /*{

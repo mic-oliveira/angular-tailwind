@@ -1,6 +1,7 @@
 export class Product {
   id: string | undefined = undefined;
   name: string = '';
+  status = '';
   description: string = '';
   price: number = 0;
   quantity: number = 1;

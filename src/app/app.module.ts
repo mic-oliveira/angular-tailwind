@@ -21,7 +21,6 @@ import {AuthGuard} from "./shared/guards/auth.guard";
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },
-    AuthGuard
   ],
   bootstrap: [AppComponent],
 })

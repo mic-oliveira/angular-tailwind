@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./paginator.component.scss']
 })
 export class PaginatorComponent {
-
+  pages: any;
+  
 }
