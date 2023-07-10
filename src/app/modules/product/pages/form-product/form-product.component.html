@@ -8,7 +8,22 @@
         <span class="text-sm text-gray-400 dark:text-night-300">{{product.status | uppercase}}</span>
       </div>
     </div>
-    <div class="form__group flex grid grid-cols-1 space-y-2 md:grid-cols-1 md:space-y-2">
+    <div class="form__group flex grid grid-cols-3 space-y-2 md:grid-cols-1 md:space-y-2">
+      <div class="relative w-full md:w-1/5">
+        <input
+                type="text"
+                id="name"
+                class="peer block grid-cols-2"
+                name="name"
+                [(ngModel)]="product.name"
+                placeholder=" "
+                required />
+        <label
+                for="name"
+                class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
+          Name
+        </label>
+      </div>
       <div class="relative w-full md:w-1/5">
         <input
           type="text"
@@ -16,13 +31,27 @@
           class="peer block grid-cols-2"
           name="description"
           [(ngModel)]="product.description"
-
           placeholder=" "
           required />
         <label
           for="description"
           class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
-          Due Date
+          Description
+        </label>
+      </div>
+      <div class="relative w-full md:w-1/5">
+        <input
+                type="text"
+                id="price"
+                class="peer block grid-cols-2"
+                name="price"
+                [(ngModel)]="product.price"
+                placeholder=" "
+                required />
+        <label
+                for="description"
+                class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
+          price
         </label>
       </div>
     </div>

@@ -4,6 +4,7 @@ import {Invoice} from "../../models/invoice";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../../../product/models/Product";
 import {SweetAlertService} from "../../../../shared/services/sweet-alert.service";
+import {environment} from "../../../../../environments/environment";
 
 
 @Component({
@@ -41,6 +42,9 @@ export class FormInvoiceComponent implements OnInit {
         })
       },
       error: (error) => {
+        if (!environment.production) {
+          console.log(error)
+        }
         SweetAlertService.error({title: 'Teste', type: 'success', text: error.error.message, successButtonText: 'OK'}).then()
       }
     })
