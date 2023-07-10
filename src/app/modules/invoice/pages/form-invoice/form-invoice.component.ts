@@ -35,10 +35,11 @@ export class FormInvoiceComponent implements OnInit {
 
   submitForm() {
     this._invoiceService.post(this.invoice).subscribe(() => {
-      SweetAlertService.success({title: 'Teste', type: 'success', successButtonText: 'OK'}).then(() => {
+      SweetAlertService.success({title: 'Teste', type: 'success', text: null, successButtonText: 'OK'}).then(() => {
         this._router.navigateByUrl('dashboard/invoices').then();
       })
-
+    }, (error) => {
+      SweetAlertService.error({title: 'Teste', type: 'success', text: error.error.message, successButtonText: 'OK'}).then()
     })
   }
 }

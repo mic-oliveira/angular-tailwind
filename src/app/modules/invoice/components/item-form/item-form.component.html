@@ -20,7 +20,7 @@
                 Product name
               </label>
             </div>
-            <div *ngIf="showSuggest" class="absolute h-40 top-40 w-300 mt-0.5 space-y-0.5 rounded bg-orange-500 p-1.5 z-10 overflow-y-auto">
+            <div *ngIf="showSuggest" class="absolute h-40 top-40 w-300 mt-0.5 space-y-0.5 rounded bg-orange-500 p-1.5 z-10 overflow-y-auto z-[100]">
               <div *ngFor="let product of products | async" class="grid h-1/2 grid-cols-10 items-center space-x-2 cursor-pointer" (click)="selectItem(product)">
                 <div class="col-span-1 flex justify-center">
                   <img ngSrc="favicon.ico" alt="" height="30" width="28"/>
