@@ -4,6 +4,7 @@ import {Product} from "../../../product/models/Product";
 import {debounceTime, Observable, of, Subject} from "rxjs";
 import {ProductSearch} from "../../../product/models/ProductSearch";
 import {NgForm} from "@angular/forms";
+import {CurrencyPipe, DecimalPipe} from "@angular/common";
 
 @Component({
   selector: 'app-item-form',
@@ -43,7 +44,6 @@ export class ItemFormComponent implements OnInit{
       this.showSuggest = false;
       this.products = of([]);
       return;
-
   }
 
   selectItem(product: Product) {
@@ -54,7 +54,8 @@ export class ItemFormComponent implements OnInit{
   }
 
   sumTotal() {
-    this.product.total = this.product.quantity * this.product.price;
+    const number = new DecimalPipe('pt-BR')
+    this.product.total = parseFloat(number.transform(this.product.quantity * this.product.price, '1.2-2') || '0');
   }
 
   addProduct(form: NgForm) {
