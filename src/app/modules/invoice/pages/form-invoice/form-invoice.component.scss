@@ -1,0 +1,9 @@
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  color: #6b7280;
+  #background-color: #6b7280;
+  border-radius: 4px;
+  margin-right: 2px;
+  opacity: 0.6;
+  filter: invert(0.8);
+}
