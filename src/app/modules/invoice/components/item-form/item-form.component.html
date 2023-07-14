@@ -46,7 +46,7 @@
           </div>
           <div class="flex justify-end items-center">
             <div class="relative w-full">
-              <input type="text" id="price" name="price" class="peer block" placeholder=" " (keyup)="sumTotal()" [(ngModel)]="product.price | number:''" required />
+              <input type="text" id="price" name="price" class="peer block" placeholder=" " (keyup)="sumTotal()" [(ngModel)]="product.price" required />
               <label
                 for="price"
                 class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
@@ -56,7 +56,7 @@
           </div>
           <div class="flex justify-end items-center">
             <div class="relative w-full">
-              <input disabled type="text" id="total" name="total" class="peer block" placeholder=" " [ngModel]="product.total | currency:'BRL'" required />
+              <input disabled type="text" id="total" name="total" class="peer block" placeholder=" " [ngModel]="product" required />
               <label
                 for="price"
                 class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
