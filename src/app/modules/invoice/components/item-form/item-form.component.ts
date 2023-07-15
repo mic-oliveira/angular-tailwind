@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Inject, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Inject, LOCALE_ID, OnInit, Output, ViewChild} from '@angular/core';
 import {ApiInterface} from "../../../../services/api-interface";
 import {Product} from "../../../product/models/Product";
 import {debounceTime, Observable, of, Subject} from "rxjs";
@@ -54,7 +54,7 @@ export class ItemFormComponent implements OnInit{
   }
 
   sumTotal() {
-    const number = new DecimalPipe('pt-BR')
+    const number = new DecimalPipe('en-US')
     this.product.total = parseFloat(number.transform(this.product.quantity * this.product.price, '1.2-2') || '0');
   }
 
