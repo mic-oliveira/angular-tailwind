@@ -47,7 +47,6 @@ export class ItemFormComponent implements OnInit{
   }
 
   selectItem(product: Product) {
-    console.log(product)
     this.product = product;
     this.clearSearch();
     this.quantity.nativeElement.focus();
