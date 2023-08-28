@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ApiInterface} from "../api-interface";
 import {Observable} from "rxjs";
-import {Invoice} from "../../modules/invoice/models/invoice";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {InvoiceSearch} from "../../modules/invoice/models/invoiceSearch";
+import {LaravelPage} from "../../shared/models/laravel-page";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class InvoiceService implements ApiInterface {
     return this.http.get(`${this.endpoint}/${id}`);
   }
 
-  get(filter?: InvoiceSearch): Observable<any> {
+  get(filter?: InvoiceSearch, page: number = 1): Observable<any> {
     console.log(filter?.toURI())
     return this.http.get(`${this.endpoint}${filter?.toURI()}`);
   }

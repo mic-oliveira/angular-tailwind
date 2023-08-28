@@ -4,10 +4,11 @@ import { ResponsiveHelperComponent } from './components/responsive-helper/respon
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { LaravelPaginatorComponent } from './components/laravel-paginator/laravel-paginator.component';
 
 @NgModule({
-  declarations: [ResponsiveHelperComponent, ClickOutsideDirective, DataTableComponent, PaginatorComponent],
+  declarations: [ResponsiveHelperComponent, ClickOutsideDirective, DataTableComponent, PaginatorComponent, LaravelPaginatorComponent],
   imports: [CommonModule],
-  exports: [ResponsiveHelperComponent, ClickOutsideDirective, DataTableComponent],
+    exports: [ResponsiveHelperComponent, ClickOutsideDirective, DataTableComponent, PaginatorComponent, LaravelPaginatorComponent],
 })
 export class SharedModule {}

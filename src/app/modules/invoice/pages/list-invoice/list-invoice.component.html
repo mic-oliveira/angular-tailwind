@@ -33,7 +33,7 @@
           *ngFor="let invoice of invoices | async; let i = index"
           class="border-b border-dashed border-gray-200 hover:bg-gray-100 dark:border-night-500 dark:hover:bg-night-600">
           <td class="py-2 pr-2 text-center">
-            <span class="text-xs font-semibold text-gray-400 dark:text-night-300">{{ i + 1 }}</span>
+            <span class="text-xs font-semibold text-gray-400 dark:text-night-300">{{ meta.from + i }}</span>
           </td>
           <td class="py-2 pl-2 text-left">
             <span class="text-sm font-semibold text-gray-400 dark:text-night-200">{{ invoice.email }}</span>
@@ -62,7 +62,13 @@
           </td>
         </tr>
       </tbody>
+      <tfoot>
+      </tfoot>
       <!--end::Table body-->
     </table>
+  </div>
+  <div class="flex items-center justify-center mt-5">
+    {{currentPage}}
+    <laravel-paginator (changePage)="changePage($event)"></laravel-paginator>
   </div>
 </div>

@@ -1,0 +1,14 @@
+<div class="inline-block space-x-1">
+    <span class="cursor-pointer" (click)="current(1)">
+        <<
+    </span>
+    <span class="cursor-pointer" (click)="current(1)">
+        I<
+    </span>
+    <ng-container *ngFor="let link of meta.links">
+        <span (click)="current(link.label)" class="cursor-pointer"
+              [ngClass]="{'active': link.active}"
+        >{{link.label}}</span>
+    </ng-container>
+    <p>laravel-paginator works!</p>
+</div>
