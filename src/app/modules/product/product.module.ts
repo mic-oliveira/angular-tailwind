@@ -12,6 +12,7 @@ import { FormProductComponent } from './pages/form-product/form-product.componen
 import Echo from "laravel-echo";
 import Pusher from "pusher-js";
 import {FormsModule} from "@angular/forms";
+import {SharedModule} from "../../shared/shared.module";
 
 
 @NgModule({
@@ -23,17 +24,18 @@ import {FormsModule} from "@angular/forms";
   exports: [
     ProductSelectorComponent
   ],
-  imports: [
-    CommonModule,
-    ProductRoutingModule,
-    NgIconComponent,
-    AngularSvgIconModule,
-    NgIconsModule.withIcons({
-      heroPencilSquareSolid,
-      heroTrashSolid,
-    }),
-    FormsModule,
-  ],
+    imports: [
+        CommonModule,
+        ProductRoutingModule,
+        NgIconComponent,
+        AngularSvgIconModule,
+        NgIconsModule.withIcons({
+            heroPencilSquareSolid,
+            heroTrashSolid,
+        }),
+        FormsModule,
+        SharedModule,
+    ],
   providers: [
     {provide: 'ProductService', useClass: ProductService},
     {provide: Pusher, useValue: Pusher}

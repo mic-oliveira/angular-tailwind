@@ -18,6 +18,11 @@ const routes: Routes = [
     component: LayoutComponent,
     loadChildren: () => import('../product/product.module').then((m) => m.ProductModule)
   },
+  {
+    path: 'customers',
+    component: LayoutComponent,
+    loadChildren: () => import('../customer/customer.module').then((m) => m.CustomerModule)
+  },
   { path: '', redirectTo: 'invoices', pathMatch: 'full' },
   { path: '**', redirectTo: 'error/404' },
 ];

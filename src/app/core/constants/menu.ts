@@ -29,6 +29,17 @@ export class Menu {
         },
       ]
     },
+    {
+      group: 'Customers',
+      separator: false,
+      items: [
+        {
+          icon: 'assets/icons/outline/users.svg',
+          label: 'Customers',
+          route: '/dashboard/customers',
+        },
+      ]
+    },
     /*{
       group: 'Base',
       separator: false,

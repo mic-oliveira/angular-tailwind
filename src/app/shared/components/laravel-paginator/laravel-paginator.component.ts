@@ -12,19 +12,21 @@ export class LaravelPaginatorComponent implements OnInit{
   @Input() offset: number = 5;
   @Output() changePage: EventEmitter<number> = new EventEmitter<number>()
   meta: LaravelMeta = new LaravelMeta();
+  currentPage: number = 1;
   constructor(private paginationService: LaravelPaginatorService) {
   }
 
   ngOnInit(): void {
     this.paginationService.pageUpdater.subscribe((pagination: LaravelPage) => {
       this.meta = pagination.meta;
+      this.currentPage = this.meta.current_page;
       this.meta.links = this.meta.links.filter((link: any) => link.label >= 1 && link.label <= this.meta.last_page)
       console.log(this.meta.links)
     })
   }
 
   current(page: number) {
-    console.log(page)
+    this.currentPage = page;
     this.changePage.emit(page);
   }
 }

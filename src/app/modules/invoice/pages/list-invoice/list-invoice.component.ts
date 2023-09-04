@@ -37,6 +37,7 @@ export class ListInvoiceComponent implements OnInit {
   }
 
   search() {
+    this.searchOptions.page = '1';
     this.searchInvoice.next('');
   }
 
