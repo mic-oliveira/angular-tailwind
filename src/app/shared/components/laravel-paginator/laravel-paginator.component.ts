@@ -26,6 +26,9 @@ export class LaravelPaginatorComponent implements OnInit{
   }
 
   current(page: number) {
+    if(page > this.meta.current_page) {
+      return;
+    }
     this.currentPage = page;
     this.changePage.emit(page);
   }
