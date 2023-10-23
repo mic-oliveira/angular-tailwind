@@ -1,4 +1,4 @@
-import { LaravelPage } from './laravel-page';
+import {LaravelPage} from './laravel-page';
 
 describe('LaravelPage', () => {
   it('should create an instance', () => {

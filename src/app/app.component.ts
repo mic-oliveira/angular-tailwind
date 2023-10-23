@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ThemeService } from './core/services/theme.service';
+import {Component} from '@angular/core';
+import {ThemeService} from './core/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,7 @@ import { ThemeService } from './core/services/theme.service';
 })
 export class AppComponent {
   title = 'Angular Tailwind';
-
-  constructor(public themeService: ThemeService) {}
+  
+  constructor(public themeService: ThemeService) {
+  }
 }

@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { LayoutComponent } from './layout.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {LayoutComponent} from './layout.component';
 
 const routes: Routes = [
   {
@@ -23,12 +23,13 @@ const routes: Routes = [
     component: LayoutComponent,
     loadChildren: () => import('../customer/customer.module').then((m) => m.CustomerModule)
   },
-  { path: '', redirectTo: 'invoices', pathMatch: 'full' },
-  { path: '**', redirectTo: 'error/404' },
+  {path: '', redirectTo: 'invoices', pathMatch: 'full'},
+  {path: '**', redirectTo: 'error/404'},
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class LayoutRoutingModule {}
+export class LayoutRoutingModule {
+}

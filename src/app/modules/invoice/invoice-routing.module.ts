@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {ListInvoiceComponent} from "./pages/list-invoice/list-invoice.component";
 import {FormInvoiceComponent} from "./pages/form-invoice/form-invoice.component";
 
@@ -13,4 +13,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class InvoiceRoutingModule { }
+export class InvoiceRoutingModule {
+}

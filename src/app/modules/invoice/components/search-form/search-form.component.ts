@@ -9,13 +9,13 @@ import {InvoiceSearch} from "../../models/invoiceSearch";
 export class SearchFormComponent {
   @Input('searchOptions') searchOptions!: InvoiceSearch;
   @Output('changeFilter') changerFilter = new EventEmitter<any>();
-
+  
   public toggle: boolean = false;
-
+  
   toggleOption() {
     this.toggle = !this.toggle;
   }
-
+  
   emitChange() {
     this.changerFilter.emit('');
   }

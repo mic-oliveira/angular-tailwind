@@ -1,76 +1,85 @@
 <div class="relative z-500 m-2 flex-col w- rounded-lg bg-white px-8 py-8 dark:bg-night-700 sm:flex-row">
-  <div class="mb-4 flex items-center justify-between">
-    <div class="flex-col items-center">
-      <span class="text-sm text-gray-400 dark:text-night-300">Add products</span>
-    </div>
-  </div>
-  <form #form="ngForm">
-    <div class="mt-4 overflow-x-auto md:pl-2 md:pr-2">
-      <div class="grid grid-cols-1 space-y-4 py-2 md:grid-cols-10">
-        <div class="md:w-2/10 flex w-full justify-center h-20">
-          <img class="w-30" ngSrc="favicon.ico" height="30" width="28" alt=""/>
+    <div class="mb-4 flex items-center justify-between">
+        <div class="flex-col items-center">
+            <span class="text-sm text-gray-400 dark:text-night-300">Add products</span>
         </div>
-        <div class="grid w-full grid-cols-1 space-y-4 md:grid-cols-6 md:col-span-9 md:space-x-2 md:space-y-0">
-          <div class="justify-end items-center md:col-span-2 grid grid-cols-1">
-            <div class="relative w-full">
-              <input type="text" id="name" name="name" class="peer block" placeholder=" " (click)="search()" (keyup)="search()" (clickOutside)="clearSearch()" [(ngModel)]="product.name" required />
-              <label
-                for="name"
-                class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
-                Product name
-              </label>
-            </div>
-            <div *ngIf="showSuggest" class="absolute h-40 top-40 w-300 mt-0.5 space-y-0.5 rounded bg-orange-500 p-1.5 z-10 overflow-y-auto z-[100]">
-              <div *ngFor="let product of products | async" class="grid h-1/2 grid-cols-10 items-center space-x-2 cursor-pointer" (click)="selectItem(product)">
-                <div class="col-span-1 flex justify-center">
-                  <img ngSrc="favicon.ico" alt="" height="30" width="28"/>
-                </div>
-                <div class="col-span-6 text-left align-middle">
-                  <span>{{product.name}}</span>
-                </div>
-                <div class="col-span-3 flex justify-center">
-                  <span>{{product.price}}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="flex justify-end items-center">
-            <div class="relative w-full">
-              <input type="number" min="1" id="quantity" name="quantity" class="peer block" placeholder=" " (keyup)="sumTotal()" [(ngModel)]="product.quantity" required  #quantity/>
-              <label
-                for="quantity"
-                class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
-                Quantity
-              </label>
-            </div>
-          </div>
-          <div class="flex justify-end items-center">
-            <div class="relative w-full">
-              <input type="text" id="price" name="price" class="peer block" placeholder=" " (keyup)="sumTotal()" [(ngModel)]="product.price" required />
-              <label
-                for="price"
-                class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
-                Price
-              </label>
-            </div>
-          </div>
-          <div class="flex justify-end items-center">
-            <div class="relative w-full">
-              <input disabled type="text" id="total" name="total" class="peer block" placeholder=" " [ngModel]="product.total?.toFixed(2)" required />
-              <label
-                for="price"
-                class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
-                Total
-              </label>
-            </div>
-          </div>
-          <div class="flex justify-end items-center">
-            <div class="relative w-auto">
-              <button type="button" (click)="addProduct(form)">Add product</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </form>
+    <form #form="ngForm">
+        <div class="mt-4 overflow-x-auto md:pl-2 md:pr-2">
+            <div class="grid grid-cols-1 space-y-4 py-2 md:grid-cols-10">
+                <div class="md:w-2/10 flex w-full justify-center h-20">
+                    <img class="w-30" ngSrc="favicon.ico" height="30" width="28" alt=""/>
+                </div>
+                <div class="grid w-full grid-cols-1 space-y-4 md:grid-cols-6 md:col-span-9 md:space-x-2 md:space-y-0">
+                    <div class="justify-end items-center md:col-span-2 grid grid-cols-1">
+                        <div class="relative w-full">
+                            <input type="text" id="name" name="name" class="peer block" placeholder=" "
+                                   (click)="search()" (keyup)="search()" (clickOutside)="clearSearch()"
+                                   [(ngModel)]="product.name" required/>
+                            <label
+                                    for="name"
+                                    class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
+                                Product name
+                            </label>
+                        </div>
+                        <div *ngIf="showSuggest"
+                             class="absolute h-40 top-40 w-300 mt-0.5 space-y-0.5 rounded bg-orange-500 p-1.5 z-10 overflow-y-auto z-[100]">
+                            <div *ngFor="let product of products | async"
+                                 class="grid h-1/2 grid-cols-10 items-center space-x-2 cursor-pointer"
+                                 (click)="selectItem(product)">
+                                <div class="col-span-1 flex justify-center">
+                                    <img ngSrc="favicon.ico" alt="" height="30" width="28"/>
+                                </div>
+                                <div class="col-span-6 text-left align-middle">
+                                    <span>{{product.name}}</span>
+                                </div>
+                                <div class="col-span-3 flex justify-center">
+                                    <span>{{product.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end items-center">
+                        <div class="relative w-full">
+                            <input type="number" min="1" id="quantity" name="quantity" class="peer block"
+                                   placeholder=" " (keyup)="sumTotal()" [(ngModel)]="product.quantity" required
+                                   #quantity/>
+                            <label
+                                    for="quantity"
+                                    class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
+                                Quantity
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex justify-end items-center">
+                        <div class="relative w-full">
+                            <input type="text" id="price" name="price" class="peer block" placeholder=" "
+                                   (keyup)="sumTotal()" [(ngModel)]="product.price" required/>
+                            <label
+                                    for="price"
+                                    class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
+                                Price
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex justify-end items-center">
+                        <div class="relative w-full">
+                            <input disabled type="text" id="total" name="total" class="peer block" placeholder=" "
+                                   [ngModel]="product.total?.toFixed(2)" required/>
+                            <label
+                                    for="price"
+                                    class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
+                                Total
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex justify-end items-center">
+                        <div class="relative w-auto">
+                            <button type="button" (click)="addProduct(form)">Add product</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>

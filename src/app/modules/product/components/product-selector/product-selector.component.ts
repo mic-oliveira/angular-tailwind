@@ -7,8 +7,8 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class ProductSelectorComponent {
   @Input('showModal') showModal: any = false;
-  @Output('showModal') modalEmmiter: EventEmitter<boolean>= new EventEmitter<boolean>();
-
+  @Output('showModal') modalEmmiter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  
   close() {
     this.showModal = false;
     this.modalEmmiter.emit(false);

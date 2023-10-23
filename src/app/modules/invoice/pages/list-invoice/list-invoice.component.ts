@@ -3,9 +3,6 @@ import {ApiInterface} from "../../../../services/api-interface";
 import {BehaviorSubject, debounceTime, Observable, of} from "rxjs";
 import {Invoice} from "../../models/invoice";
 import {InvoiceSearch} from "../../models/invoiceSearch";
-import {Paginate} from "../../../../shared/components/paginator/paginate";
-import {PaginatorComponent} from "../../../../shared/components/paginator/paginator.component";
-import {PaginatorService} from "../../../../shared/components/paginator/paginator.service";
 import {LaravelPaginatorService} from "../../../../services/laravel-paginator-service";
 import {LaravelPage} from "../../../../shared/models/laravel-page";
 import {LaravelMeta} from "../../../../shared/models/laravel-meta";
@@ -20,12 +17,13 @@ export class ListInvoiceComponent implements OnInit {
   searchOptions: InvoiceSearch = new InvoiceSearch();
   currentPage = 1;
   meta: LaravelMeta = new LaravelMeta();
-
+  
   searchInvoice: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  
   constructor(@Inject('InvoiceService') private invoiceService: ApiInterface, private paginationService: LaravelPaginatorService) {
     console.log(this.searchOptions.toURI());
   }
-
+  
   ngOnInit(): void {
     this.searchInvoice.pipe(debounceTime(500)).subscribe((value) => {
       this.invoiceService.get(this.searchOptions).subscribe((data: LaravelPage) => {
@@ -35,12 +33,12 @@ export class ListInvoiceComponent implements OnInit {
       });
     });
   }
-
+  
   search() {
     this.searchOptions.page = '1';
     this.searchInvoice.next('');
   }
-
+  
   changePage(selectPage: number) {
     this.searchOptions.page = (selectPage).toString();
     this.searchInvoice.next('');

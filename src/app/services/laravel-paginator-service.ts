@@ -4,13 +4,13 @@ import {LaravelDataPage} from "../shared/interfaces/laravel-data-page";
 import {Injectable} from "@angular/core";
 
 @Injectable({
-    providedIn:'root',
+  providedIn: 'root',
 })
 export class LaravelPaginatorService {
-    pageUpdater: BehaviorSubject<LaravelPage> = new BehaviorSubject(new LaravelPage());
-    data$: Observable<LaravelDataPage> = this.pageUpdater.asObservable();
-
-    updatePagination(pagination: LaravelPage) {
-        this.pageUpdater.next(pagination);
-    }
+  pageUpdater: BehaviorSubject<LaravelPage> = new BehaviorSubject(new LaravelPage());
+  data$: Observable<LaravelDataPage> = this.pageUpdater.asObservable();
+  
+  updatePagination(pagination: LaravelPage) {
+    this.pageUpdater.next(pagination);
+  }
 }

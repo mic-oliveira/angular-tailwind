@@ -1,40 +1,43 @@
 <div class="form__group grid grid-cols-1 space-y-2">
-  <div class="relative w-full">
-    <input type="text" id="email" class="peer block" placeholder="Type something..." (keydown)="emitChange()" [(ngModel)]="searchOptions.getFilter('email').value" required />
-    <label
-      for="email"
-      class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
-      {{searchOptions.getFilter('email').label}}
-    </label>
-  </div>
-  <div class="w-full pr-2">
-    <div class="flex justify-end">
+    <div class="relative w-full">
+        <input type="text" id="email" class="peer block" placeholder="Type something..." (keydown)="emitChange()"
+               [(ngModel)]="searchOptions.getFilter('email').value" required/>
+        <label
+                for="email"
+                class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
+            {{searchOptions.getFilter('email').label}}
+        </label>
+    </div>
+    <div class="w-full pr-2">
+        <div class="flex justify-end">
       <span
-        class="cursor-pointer text-sm text-gray-400 hover:text-blue-300 dark:text-night-300"
-        (click)="toggleOption()">
+              class="cursor-pointer text-sm text-gray-400 hover:text-blue-300 dark:text-night-300"
+              (click)="toggleOption()">
         {{ toggle ? '-' : '+' }} search options
       </span>
-    </div>
-    <div [ngClass]="{ 'hidden translate-y-1': !toggle }" class="relative w-full space-y-2">
-      <span class="text-center text-sm text-gray-400 dark:text-night-300">Invoice date</span>
-      <div class="grid grid-cols-1 md:grid-cols-4 md:space-x-2">
-        <div class="relative w-full md:w-1/2">
-          <input type="datetime-local" id="initial_date" class="peer block" placeholder="Type some inf to search" required />
-          <label
-            for="initial_date"
-            class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
-            Start date
-          </label>
         </div>
-        <div class="relative w-full md:w-1/2">
-          <input type="datetime-local" id="end_date" class="peer block" placeholder="Type some inf to search" required />
-          <label
-            for="end_date"
-            class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
-            Final date
-          </label>
+        <div [ngClass]="{ 'hidden translate-y-1': !toggle }" class="relative w-full space-y-2">
+            <span class="text-center text-sm text-gray-400 dark:text-night-300">Invoice date</span>
+            <div class="grid grid-cols-1 md:grid-cols-4 md:space-x-2">
+                <div class="relative w-full md:w-1/2">
+                    <input type="datetime-local" id="initial_date" class="peer block"
+                           placeholder="Type some inf to search" required/>
+                    <label
+                            for="initial_date"
+                            class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
+                        Start date
+                    </label>
+                </div>
+                <div class="relative w-full md:w-1/2">
+                    <input type="datetime-local" id="end_date" class="peer block" placeholder="Type some inf to search"
+                           required/>
+                    <label
+                            for="end_date"
+                            class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary-500 dark:bg-night-700 dark:text-night-200">
+                        Final date
+                    </label>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

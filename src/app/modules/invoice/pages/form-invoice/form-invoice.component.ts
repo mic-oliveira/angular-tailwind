@@ -15,28 +15,28 @@ import {environment} from "../../../../../environments/environment";
 export class FormInvoiceComponent implements OnInit {
   invoice: Invoice = new Invoice();
   showProductAdd = false;
-
+  
   constructor(private readonly _invoiceService: InvoiceService, private readonly _activatedRoute: ActivatedRoute, private readonly _router: Router) {
     this.showProductAdd = this._activatedRoute.snapshot.paramMap.get('id') === 'create';
     this._invoiceService.find(this._activatedRoute.snapshot.paramMap.get('id') ?? '').subscribe((response) => {
       this.invoice = response.data;
     })
   }
-
+  
   ngOnInit(): void {
-
+  
   }
-
+  
   addProduct(product: Product) {
     product.sold_value = product.price;
     this.invoice.products.push(product);
     this.invoice.sumTotal();
     console.log(this.invoice)
   }
-
+  
   submitForm() {
     this._invoiceService.post(this.invoice).subscribe({
-      complete:() => {
+      complete: () => {
         SweetAlertService.success({title: 'Teste', type: 'success', text: null, successButtonText: 'OK'}).then(() => {
           this._router.navigateByUrl('dashboard/invoices').then();
         })
@@ -45,7 +45,12 @@ export class FormInvoiceComponent implements OnInit {
         if (!environment.production) {
           console.log(error)
         }
-        SweetAlertService.error({title: 'Teste', type: 'success', text: error.error.message, successButtonText: 'OK'}).then()
+        SweetAlertService.error({
+          title: 'Teste',
+          type: 'success',
+          text: error.error.message,
+          successButtonText: 'OK'
+        }).then()
       }
     })
   }

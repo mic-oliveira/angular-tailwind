@@ -1,75 +1,78 @@
 <div class="-z-50 m-3 flex-col rounded-lg bg-white px-8 py-8 dark:bg-night-700 sm:flex-row">
-  <div class="mb-4 flex items-center justify-between">
-    <div class="flex-col items-center">
-      <h3 class="text-md font-bold text-gray-900 dark:text-night-50">Invoices</h3>
-      <span class="text-sm text-gray-400 dark:text-night-300">Invoice list</span>
+    <div class="mb-4 flex items-center justify-between">
+        <div class="flex-col items-center">
+            <h3 class="text-md font-bold text-gray-900 dark:text-night-50">Invoices</h3>
+            <span class="text-sm text-gray-400 dark:text-night-300">Invoice list</span>
+        </div>
+        <button
+                [routerLink]="'create'"
+                class="flex-none rounded-md bg-green-500 px-4 py-2.5 text-xs font-semibold text-stone-50 hover:bg-green-600 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500 sm:mt-80 md:mt-0">
+            New invoice
+        </button>
     </div>
-    <button
-      [routerLink]="'create'"
-      class="flex-none rounded-md bg-green-500 px-4 py-2.5 text-xs font-semibold text-stone-50 hover:bg-green-600 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500 sm:mt-80 md:mt-0">
-      New invoice
-    </button>
-  </div>
-  <invoice-search-form [searchOptions]="searchOptions" (changeFilter)="search()"></invoice-search-form>
+    <invoice-search-form [searchOptions]="searchOptions" (changeFilter)="search()"></invoice-search-form>
 </div>
 
 <div class="-z-50 m-3 flex-col rounded-lg bg-white px-8 py-8 dark:bg-night-700 sm:flex-row">
-  <div class="relative mt-4 overflow-x-auto">
-    <table class="w-full table-auto">
-      <!--Table head-->
-      <thead class="text-xs uppercase text-gray-400 dark:text-night-300">
-        <tr>
-          <th class="py-3 text-left text-center">#</th>
-          <th class="py-3 pl-1 text-left">Email</th>
-          <th class="py-3 text-center">Status</th>
-          <th class="py-3 text-center">Price $</th>
-          <th class="py-3 text-center">View</th>
-        </tr>
-      </thead>
-      <!--end Table head-->
-      <!--Table body-->
-      <tbody>
-        <tr
-          *ngFor="let invoice of invoices | async; let i = index"
-          class="border-b border-dashed border-gray-200 hover:bg-gray-100 dark:border-night-500 dark:hover:bg-night-600">
-          <td class="py-2 pr-2 text-center">
-            <span class="text-xs font-semibold text-gray-400 dark:text-night-300">{{ meta.from + i }}</span>
-          </td>
-          <td class="py-2 pl-2 text-left">
-            <span class="text-sm font-semibold text-gray-400 dark:text-night-200">{{ invoice.email }}</span>
-          </td>
-          <td class="py-2 pl-2 text-center" [ngSwitch]="invoice.status">
-            <span *ngSwitchCase="'pending'" class="badge badge-warning badge-outline text-sm center font-semibold text-gray-400 dark:text-night-200">{{ invoice.status | uppercase }}</span>
-            <span *ngSwitchCase="'paid'" class="badge badge-success badge-outline text-sm center font-semibold text-gray-400 dark:text-night-200">{{ invoice.status | uppercase }}</span>
-            <span *ngSwitchDefault class="badge badge-error badge-outline text-sm center font-semibold text-gray-400 dark:text-night-200">{{ invoice.status | uppercase }}</span>
-          </td>
-          <td class="py-2 pl-2 text-center">
+    <div class="relative mt-4 overflow-x-auto">
+        <table class="w-full table-auto">
+            <!--Table head-->
+            <thead class="text-xs uppercase text-gray-400 dark:text-night-300">
+            <tr>
+                <th class="py-3 text-left text-center">#</th>
+                <th class="py-3 pl-1 text-left">Email</th>
+                <th class="py-3 text-center">Status</th>
+                <th class="py-3 text-center">Price $</th>
+                <th class="py-3 text-center">View</th>
+            </tr>
+            </thead>
+            <!--end Table head-->
+            <!--Table body-->
+            <tbody>
+            <tr
+                    *ngFor="let invoice of invoices | async; let i = index"
+                    class="border-b border-dashed border-gray-200 hover:bg-gray-100 dark:border-night-500 dark:hover:bg-night-600">
+                <td class="py-2 pr-2 text-center">
+                    <span class="text-xs font-semibold text-gray-400 dark:text-night-300">{{ meta.from + i }}</span>
+                </td>
+                <td class="py-2 pl-2 text-left">
+                    <span class="text-sm font-semibold text-gray-400 dark:text-night-200">{{ invoice.email }}</span>
+                </td>
+                <td class="py-2 pl-2 text-center" [ngSwitch]="invoice.status">
+                    <span *ngSwitchCase="'pending'"
+                          class="badge badge-warning badge-outline text-sm center font-semibold text-gray-400 dark:text-night-200">{{ invoice.status | uppercase }}</span>
+                    <span *ngSwitchCase="'paid'"
+                          class="badge badge-success badge-outline text-sm center font-semibold text-gray-400 dark:text-night-200">{{ invoice.status | uppercase }}</span>
+                    <span *ngSwitchDefault
+                          class="badge badge-error badge-outline text-sm center font-semibold text-gray-400 dark:text-night-200">{{ invoice.status | uppercase }}</span>
+                </td>
+                <td class="py-2 pl-2 text-center">
             <span class="text-sm font-semibold text-gray-400 dark:text-night-200">{{
-              invoice.total_amount | currency: 'BRL':'symbol'
-            }}</span>
-          </td>
-          <td class="py-2 pl-2 text-center">
-            <div class="flex justify-center space-x-2">
-              <button
-                [routerLink]="invoice.id"
-                class="flex h-7 w-7 items-center justify-center rounded-md bg-gray-200 text-gray-400 dark:bg-night-500 dark:text-night-300">
-                <ng-icon name="heroPencilSquareSolid"></ng-icon>
-              </button>
-              <button
-                href="#"
-                class="flex h-7 w-7 items-center justify-center rounded-md bg-orange-500 text-gray-400 dark:bg-night-500 dark:text-night-300">
-                <ng-icon name="heroTrashSolid" class="text-stone-50"></ng-icon>
-              </button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-      <tfoot>
-      </tfoot>
-      <!--end::Table body-->
-    </table>
-  </div>
-  <div class="flex items-center justify-center mt-5">
-    <laravel-paginator (changePage)="changePage($event)"></laravel-paginator>
-  </div>
+                invoice.total_amount | currency: 'BRL':'symbol'
+                }}</span>
+                </td>
+                <td class="py-2 pl-2 text-center">
+                    <div class="flex justify-center space-x-2">
+                        <button
+                                [routerLink]="invoice.id"
+                                class="flex h-7 w-7 items-center justify-center rounded-md bg-gray-200 text-gray-400 dark:bg-night-500 dark:text-night-300">
+                            <ng-icon name="heroPencilSquareSolid"></ng-icon>
+                        </button>
+                        <button
+                                href="#"
+                                class="flex h-7 w-7 items-center justify-center rounded-md bg-orange-500 text-gray-400 dark:bg-night-500 dark:text-night-300">
+                            <ng-icon name="heroTrashSolid" class="text-stone-50"></ng-icon>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+            <!--end::Table body-->
+        </table>
+    </div>
+    <div class="flex items-center justify-center mt-5">
+        <laravel-paginator (changePage)="changePage($event)"></laravel-paginator>
+    </div>
 </div>

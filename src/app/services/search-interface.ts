@@ -6,7 +6,8 @@ export interface SearchInterface {
   }[];
   page: string;
   perPage: string;
-
-  getFilter(filterName: string):{filterName: string, label: string, value: string}
+  
+  getFilter(filterName: string): { filterName: string, label: string, value: string }
+  
   toURI(): string;
 }

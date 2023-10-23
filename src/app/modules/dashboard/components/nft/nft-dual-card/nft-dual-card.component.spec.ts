@@ -4,18 +4,18 @@ import {NftDualCardComponent} from "./nft-dual-card.component";
 describe('ItemFormComponent', () => {
   let component: NftDualCardComponent;
   let fixture: ComponentFixture<NftDualCardComponent>;
-
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NftDualCardComponent ]
+      declarations: [NftDualCardComponent]
     })
       .compileComponents();
-
+    
     fixture = TestBed.createComponent(NftDualCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });

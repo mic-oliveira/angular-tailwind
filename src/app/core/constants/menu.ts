@@ -104,9 +104,9 @@ export class Menu {
           label: 'Folders',
           route: '/folders',
           children: [
-            { label: 'Current Files', route: '/folders/current-files' },
-            { label: 'Downloads', route: '/folders/download' },
-            { label: 'Trash', route: '/folders/trash' },
+            {label: 'Current Files', route: '/folders/current-files'},
+            {label: 'Downloads', route: '/folders/download'},
+            {label: 'Trash', route: '/folders/trash'},
           ],
         },
       ],

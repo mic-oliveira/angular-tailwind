@@ -6,7 +6,6 @@ import {SharedModule} from './shared/shared.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TranslateModule} from "@ngx-translate/core";
 import {AuthTokenInterceptor} from "./shared/interceptors/auth-token.interceptor";
-import {AuthGuard} from "./shared/guards/auth.guard";
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,8 +19,9 @@ import {AuthGuard} from "./shared/guards/auth.guard";
     })
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true},
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

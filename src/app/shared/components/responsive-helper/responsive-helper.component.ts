@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import {Component, OnInit} from '@angular/core';
+import {environment} from 'src/environments/environment';
 
 @Component({
   selector: 'app-responsive-helper',
@@ -8,8 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 export class ResponsiveHelperComponent implements OnInit {
   public env: any = environment;
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  
+  constructor() {
+  }
+  
+  ngOnInit(): void {
+  }
 }

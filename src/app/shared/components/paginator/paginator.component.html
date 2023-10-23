@@ -1,15 +1,15 @@
 <div class="inline-block space-x-1">
-  <span class="cursor-pointer"><<</span>
-  <span class="cursor-pointer" (click)="previous()">I<</span>
-  <ng-container *ngFor="let page of pages; let i = index">
+    <span class="cursor-pointer"><<</span>
+    <span class="cursor-pointer" (click)="previous()">I<</span>
+    <ng-container *ngFor="let page of pages; let i = index">
     <span *ngIf="((i) >= offsetPageMin) && ((i) <= offsetPageMax)"
           (click)="current(i)" class="cursor-pointer"
           [ngClass]="{'text-green-600': currentPage == i}"
     >
       {{ i + 1 }}
     </span>
-  </ng-container>
-  <span class="cursor-pointer" (click)="next()">>I</span>
-  <span class="cursor-pointer">>></span>
+    </ng-container>
+    <span class="cursor-pointer" (click)="next()">>I</span>
+    <span class="cursor-pointer">>></span>
 </div>
 

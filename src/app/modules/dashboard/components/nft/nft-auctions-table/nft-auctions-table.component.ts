@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Nft } from '../../../models/nft';
+import {Component, OnInit} from '@angular/core';
+import {Nft} from '../../../models/nft';
 
 @Component({
   selector: '[nft-auctions-table]',
@@ -7,7 +7,7 @@ import { Nft } from '../../../models/nft';
 })
 export class NftAuctionsTableComponent implements OnInit {
   public activeAuction: Nft[] = [];
-
+  
   constructor() {
     this.activeAuction = [
       {
@@ -72,6 +72,7 @@ export class NftAuctionsTableComponent implements OnInit {
       },
     ];
   }
-
-  ngOnInit(): void {}
+  
+  ngOnInit(): void {
+  }
 }

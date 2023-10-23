@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Nft } from '../../models/nft';
+import {Component, OnInit} from '@angular/core';
+import {Nft} from '../../models/nft';
 
 @Component({
   selector: 'app-nft',
@@ -7,7 +7,7 @@ import { Nft } from '../../models/nft';
 })
 export class NftComponent implements OnInit {
   nft: Array<Nft>;
-
+  
   constructor() {
     this.nft = [
       {
@@ -37,6 +37,7 @@ export class NftComponent implements OnInit {
       },
     ];
   }
-
-  ngOnInit(): void {}
+  
+  ngOnInit(): void {
+  }
 }

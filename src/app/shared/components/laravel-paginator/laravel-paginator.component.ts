@@ -8,14 +8,15 @@ import {LaravelPage} from "../../models/laravel-page";
   templateUrl: './laravel-paginator.component.html',
   styleUrls: ['./laravel-paginator.component.scss']
 })
-export class LaravelPaginatorComponent implements OnInit{
+export class LaravelPaginatorComponent implements OnInit {
   @Input() offset: number = 5;
   @Output() changePage: EventEmitter<number> = new EventEmitter<number>()
   meta: LaravelMeta = new LaravelMeta();
   currentPage: number = 1;
+  
   constructor(private paginationService: LaravelPaginatorService) {
   }
-
+  
   ngOnInit(): void {
     this.paginationService.pageUpdater.subscribe((pagination: LaravelPage) => {
       this.meta = pagination.meta;
@@ -24,9 +25,9 @@ export class LaravelPaginatorComponent implements OnInit{
       console.log(this.meta.links)
     })
   }
-
+  
   current(page: number) {
-    if(page > this.meta.last_page) {
+    if (page > this.meta.last_page) {
       return;
     }
     this.currentPage = page;

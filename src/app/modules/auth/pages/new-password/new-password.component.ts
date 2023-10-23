@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-new-password',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-password.component.scss'],
 })
 export class NewPasswordComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor() {
+  }
+  
+  ngOnInit(): void {
+  }
 }

@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {ListCustomerComponent} from "./list-customer/list-customer.component";
-import {FormCustomerComponent} from "./form-customer/form-customer.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {ListCustomerComponent} from "./pages/list-customer/list-customer.component";
+import {FormCustomerComponent} from "./pages/form-customer/form-customer.component";
 
 const routes: Routes = [
-  { path: '', component: ListCustomerComponent },
-  { path: ':id', component: FormCustomerComponent},
+  {path: '', component: ListCustomerComponent},
+  {path: ':id', component: FormCustomerComponent},
 
 ];
 
@@ -13,4 +13,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CustomerRoutingModule { }
+export class CustomerRoutingModule {
+}

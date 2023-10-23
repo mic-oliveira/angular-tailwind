@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription, timeout } from 'rxjs';
-import { ThemeService } from 'src/app/core/services/theme.service';
-import { ChartOptions } from '../../../../../shared/models/chart-options';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {ThemeService} from 'src/app/core/services/theme.service';
+import {ChartOptions} from '../../../../../shared/models/chart-options';
 
 @Component({
   selector: '[nft-chart-card]',
@@ -10,7 +10,7 @@ import { ChartOptions } from '../../../../../shared/models/chart-options';
 export class NftChartCardComponent implements OnInit, OnDestroy {
   public chartOptions: Partial<ChartOptions>;
   private subscription: Subscription = new Subscription();
-
+  
   constructor(private themeService: ThemeService) {
     const baseColor = '#7239ea';
     const data = [2100, 3200, 3200, 2400, 2400, 1800, 1800, 2400, 2400, 3200, 3200, 3000, 3000, 3250, 3250];
@@ -31,7 +31,7 @@ export class NftChartCardComponent implements OnInit, OnDestroy {
       '8PM',
       '9PM',
     ];
-
+    
     this.chartOptions = {
       series: [
         {
@@ -96,7 +96,7 @@ export class NftChartCardComponent implements OnInit, OnDestroy {
       colors: [baseColor], //line colors
     };
   }
-
+  
   ngOnInit(): void {
     /** Chand chart theme */
     let sub = this.themeService.themeChanged.subscribe((theme) => {
@@ -106,7 +106,7 @@ export class NftChartCardComponent implements OnInit, OnDestroy {
     });
     this.subscription.add(sub);
   }
-
+  
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

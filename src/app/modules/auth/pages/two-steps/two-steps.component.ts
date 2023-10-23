@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-two-steps',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./two-steps.component.scss'],
 })
 export class TwoStepsComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor() {
+  }
+  
+  ngOnInit(): void {
+  }
 }

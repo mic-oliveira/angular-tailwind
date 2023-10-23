@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListProductsComponent } from './list-products.component';
+import {ListProductsComponent} from './list-products.component';
 
 describe('ListProductsComponent', () => {
   let component: ListProductsComponent;
   let fixture: ComponentFixture<ListProductsComponent>;
-
+  
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ListProductsComponent]
@@ -14,7 +14,7 @@ describe('ListProductsComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });

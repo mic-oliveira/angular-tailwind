@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-bottom-navbar',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bottom-navbar.component.scss'],
 })
 export class BottomNavbarComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor() {
+  }
+  
+  ngOnInit(): void {
+  }
 }
