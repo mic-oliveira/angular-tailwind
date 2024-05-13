@@ -110,5 +110,6 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('tailwind-scrollbar'),
     'prettier-plugin-tailwindcss',
+    require('daisyui')
   ],
 };

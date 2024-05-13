@@ -1,4 +1,8 @@
-<div>
+<div *ngIf="themeService.isDark" data-theme="dark">
+  <router-outlet></router-outlet>
+  <app-responsive-helper></app-responsive-helper>
+</div>
+<div *ngIf="!themeService.isDark" data-theme="light">
   <router-outlet></router-outlet>
   <app-responsive-helper></app-responsive-helper>
 </div>

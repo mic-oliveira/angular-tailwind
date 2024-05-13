@@ -39,6 +39,17 @@ export class Menu {
       ],
     },
     {
+      group: 'Customers',
+      separator: true,
+      items: [
+        {
+          icon: 'assets/icons/heroicons/outline/download.svg',
+          label: 'Customers',
+          route: '/customers',
+        }
+      ]
+    },
+    {
       group: 'Collaboration',
       separator: true,
       items: [
